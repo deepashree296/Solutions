@@ -1,0 +1,28 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Feb 21 17:38:33 2018
+
+@author: deep
+"""
+
+def isIn(char, aStr):
+    '''
+    char: a single character
+    aStr: an alphabetized string
+    
+    returns: True if char is in aStr; False otherwise
+    '''
+    # Your code here
+    testchar = aStr[len(aStr)//2 : len(aStr)//2 + 1]
+    
+    if len(aStr) == 0:
+        return False
+    
+    if char == testchar:
+        return True
+    elif char > testchar:
+        return isIn(char, aStr[len(aStr)//2 + 1 :])
+    else:
+        return isIn(char, aStr[0 : len(aStr)//2 - 1])
+        
